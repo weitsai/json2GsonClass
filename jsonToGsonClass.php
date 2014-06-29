@@ -18,3 +18,13 @@ array_walk($keys, function($val, $key) {
 
 echo '}';
 
+function capitalize($string)
+{
+  return ucfirst(preg_replace_callback(
+    '/_([a-z])/',
+    function ($m) {
+      return strtoupper($m[1]);
+    },
+    $string
+    ));
+}
