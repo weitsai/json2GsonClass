@@ -6,7 +6,13 @@ echo 'public class test {' . PHP_EOL;
 
 // Declare variables
 array_walk($keys, function($val, $key) {
-   echo "\t private String {$val};\n";
+   echo "\tprivate String {$val};\n";
+});
+
+// Declare set/get function
+// 變數字首大寫
+array_walk($keys, function($val, $key) {
+   echo "\n\tpublic void set" . ucfirst($val) . "{\n\t}\n";
 });
 
 echo '}';
