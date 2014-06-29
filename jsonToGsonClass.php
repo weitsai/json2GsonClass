@@ -12,7 +12,8 @@ array_walk($keys, function($val, $key) {
 // Declare set/get function
 // 變數字首大寫
 array_walk($keys, function($val, $key) {
-   echo "\n\tpublic void set" . ucfirst($val) . "{\n\t}\n";
+   echo "\n\tpublic void set" . ucfirst($val) . "(String $val) {\n\t}\n";
+   echo "\n\tpublic String get" . ucfirst($val) . "() {\n\t}\n";
 });
 
 echo '}';
