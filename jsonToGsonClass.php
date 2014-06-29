@@ -21,7 +21,7 @@ array_walk($keys, function($val, $key) use ($show_set_function, $show_get_functi
     }
 
     if ($show_get_function) {
-        echo "\n\tpublic String get" . capitalize($val) . "() {\n\t}\n";
+        echo "\n\tpublic String get" . capitalize($val) . "() {\n\t\treturn this.{$val};\n\t}\n";
     }
 });
 
