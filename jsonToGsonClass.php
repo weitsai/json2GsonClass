@@ -1,4 +1,7 @@
 <?php
+$show_set_function = false;
+$show_get_function = true;
+
 $json = '{"from_uid":"adfsdfe3rwersdf343","color":"#000","from_username": "weitsai","message": "android send"}';
 $keys = array_keys(json_decode($json, true));
 
@@ -11,9 +14,14 @@ array_walk($keys, function($val, $key) {
 
 // Declare set/get function
 // 變數字首大寫
-array_walk($keys, function($val, $key) {
-    echo "\n\tpublic void set" . capitalize($val) . "(String $val) {\n\t}\n";
-    echo "\n\tpublic String get" . capitalize($val) . "() {\n\t}\n";
+array_walk($keys, function($val, $key) use ($show_set_function, $show_get_function){
+    if ($show_set_function) {
+        echo "\n\tpublic void set" . capitalize($val) . "(String $val) {\n\t}\n";
+    }
+
+    if ($show_get_function) {
+        echo "\n\tpublic String get" . capitalize($val) . "() {\n\t}\n";
+    }
 });
 
 echo '}';
