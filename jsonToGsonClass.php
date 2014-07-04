@@ -1,3 +1,4 @@
+<pre class="java"><code>
 <?php
 $json = isset($_GET['code_block']) ? $_GET['code_block'] : false;
 $class_name = 'weitsai_test';
@@ -37,3 +38,8 @@ function capitalize($string)
         $string
         ));
 }
+?>
+</code></pre>
+<link data-turbolinks-track="true" rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow-night.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
