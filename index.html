@@ -25,18 +25,18 @@
     <hr>
     <iframe name="result" frameborder="0" width="100%"></iframe>
     <script>
-        block = document.getElementById('code_block');
-        output = document.getElementById('output');
+        var block = document.getElementById('code_block');
+        var output = document.getElementById('output');
         block.onkeyup = function(e) {
             output.innerHTML = '';
             json = JSON.parse(block.value)
                 for(var i in json){
-                    checkbox = document.createElement('input');
+                    var checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
                     checkbox.name = i;
                     checkbox.checked = true;
-                    text = document.createTextNode(" " + i);
-                    select = document.createElement('select');
+                    var text = document.createTextNode(" " + i);
+                    var select = document.createElement('select');
                     select.type = 'select';
                     select.className = 'form-control';
                     select.name = 'select_' + i;
