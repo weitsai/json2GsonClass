@@ -1,9 +1,9 @@
 <?php
+$json = isset($_GET['code_block']) ? $_GET['code_block'] : false;
 $class_name = 'weitsai_test';
 $show_set_function = false;
 $show_get_function = true;
 
-$json = '{"from_uid":"adfsdfe3rwersdf343","color":"#000","from_username": "weitsai","message": "android send"}';
 $keys = array_keys(json_decode($json, true));
 
 echo "public class $class_name {" . PHP_EOL;
