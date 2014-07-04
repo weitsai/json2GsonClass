@@ -2,7 +2,7 @@
 <?php
 $json = isset($_GET['code_block']) ? $_GET['code_block'] : false;
 $class_name = 'weitsai_test';
-$show_set_function = false;
+$show_set_function = true;
 $show_get_function = true;
 
 if ($json == false) {
@@ -31,10 +31,12 @@ array_walk($keys, function($val, $key) use ($show_set_function, $show_get_functi
         return;
     }
     if ($show_set_function) {
+        echo "\t/**\n\t * @param {$showArray[$val . '_select']}\n\t */";
         echo "\n\tpublic void set" . capitalize($val) . "({$showArray[$val . '_select']} $val) {\n\t}\n";
     }
 
     if ($show_get_function) {
+        echo "\t/**\n\t * @return {$showArray[$val . '_select']}\n\t */";
         echo "\n\tpublic {$showArray[$val . '_select']} get" . capitalize($val) . "() {\n\t\treturn this.{$val};\n\t}\n";
     }
 });
