@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>JSON</h1>
+    </div>
+    <div class="row">
+        <form action="jsonToGsonClass.php" target="result">
+            <div class="col-sm-6">
+                <textarea class="form-control" name="code_block" id="code_block" cols="30" rows="10"></textarea>
+                <hr>
+                <input class="btn btn-lg btn-success" type="submit">
+            </div>
+            <div class="col-sm-6">
+                <div id="output"></div>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <iframe name="result" frameborder="0" width="100%"></iframe>
+    <script>
+        block = document.getElementById('code_block');
+        output = document.getElementById('output');
+        block.onkeyup = function(e) {
+            output.innerHTML = '';
+            json = JSON.parse(block.value)
+                for(var i in json){
+                    checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.name = i;
+                    text = document.createTextNode(i);
+                    output.appendChild(checkbox);
+                    output.appendChild(text);
+                    output.appendChild(document.createElement('br'))
+                }
+        }
+    </script>
+</div>
+</body>
+</html>
