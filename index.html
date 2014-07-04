@@ -35,8 +35,16 @@
                     checkbox.type = 'checkbox';
                     checkbox.name = i;
                     text = document.createTextNode(i);
+                    select = document.createElement('select');
+                    select.add(new Option('請下拉選擇', ''));
+                    select.add(new Option('String', 'String'));
+                    select.add(new Option('int', 'int'));
+                    select.add(new Option('double', 'double'));
+                    select.add(new Option('float', 'float'));
+                    select.add(new Option('long', 'long'));
                     output.appendChild(checkbox);
                     output.appendChild(text);
+                    output.appendChild(select);
                     output.appendChild(document.createElement('br'))
                 }
         }
