@@ -46,7 +46,7 @@ echo '}';
 function capitalize($string)
 {
     return ucfirst(preg_replace_callback(
-        '/_([a-z])/',
+        '/_([A-Za-z])/',
         function ($m) {
             return strtoupper($m[1]);
         },
