@@ -38,6 +38,7 @@
                     text = document.createTextNode(" " + i);
                     select = document.createElement('select');
                     select.type = 'select';
+                    select.className = 'form-control';
                     select.name = 'select_' + i;
                     select.add(new Option('String', 'String'));
                     select.add(new Option('int', 'int'));
