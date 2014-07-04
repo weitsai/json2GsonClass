@@ -19,8 +19,9 @@ $showArray = [];
 array_walk($keys, function($val, $key) {
     global $showArray;
     $showArray[$val] = isset($_GET[$val]) ? $_GET[$val] : false;
+    $showArray[$val . '_select'] = isset($_GET['select_' . $val]) ? $_GET['select_' . $val] : false;
     if ($showArray[$val] != false) {
-        echo "\tprivate String {$val};\n";
+        echo "\tprivate {$showArray[$val . '_select']} {$val};\n";
     }
 });
 // Declare set/get function
@@ -30,11 +31,11 @@ array_walk($keys, function($val, $key) use ($show_set_function, $show_get_functi
         return;
     }
     if ($show_set_function) {
-        echo "\n\tpublic void set" . capitalize($val) . "(String $val) {\n\t}\n";
+        echo "\n\tpublic void set" . capitalize($val) . "({$showArray[$val . '_select']} $val) {\n\t}\n";
     }
 
     if ($show_get_function) {
-        echo "\n\tpublic String get" . capitalize($val) . "() {\n\t\treturn this.{$val};\n\t}\n";
+        echo "\n\tpublic {$showArray[$val . '_select']} get" . capitalize($val) . "() {\n\t\treturn this.{$val};\n\t}\n";
     }
 });
 
