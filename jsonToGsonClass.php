@@ -13,23 +13,26 @@ if ($json == false) {
 
 echo "public class $class_name {" . PHP_EOL;
 
+$showArray = [];
 // Declare variables
 array_walk($keys, function($val, $key) {
-    $isShow = isset($_GET[$val]) ? $_GET[$val] : false;
-    if ($isShow != false) {
+    // global $showArray;
+    $showArray[$val] = isset($_GET[$val]) ? $_GET[$val] : false;
+    if ($showArray[$val] != false) {
         echo "\tprivate String {$val};\n";
     }
 });
-
 // Declare set/get function
 // 變數字首大寫
-array_walk($keys, function($val, $key) use ($show_set_function, $show_get_function){
-    $isShow = isset($_GET[$val]) ? $_GET[$val] : false;
-    if ($show_set_function AND $isShow != false) {
+array_walk($keys, function($val, $key) use ($show_set_function, $show_get_function, $showArray) {
+    if ($showArray[$val] == false) {
+        return;
+    }
+    if ($show_set_function) {
         echo "\n\tpublic void set" . capitalize($val) . "(String $val) {\n\t}\n";
     }
 
-    if ($show_get_function AND $isShow != false) {
+    if ($show_get_function) {
         echo "\n\tpublic String get" . capitalize($val) . "() {\n\t\treturn this.{$val};\n\t}\n";
     }
 });
