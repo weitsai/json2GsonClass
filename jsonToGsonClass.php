@@ -5,11 +5,12 @@ $class_name = 'weitsai_test';
 $show_set_function = false;
 $show_get_function = true;
 
-$keys = array_keys(json_decode($json, true));
 if ($json == false) {
     echo "<h1>Not input json</h1>";
     exit;
 }
+
+$keys = array_keys(json_decode($json, true));
 
 echo "public class $class_name {" . PHP_EOL;
 
