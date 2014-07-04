@@ -17,7 +17,7 @@ echo "public class $class_name {" . PHP_EOL;
 $showArray = [];
 // Declare variables
 array_walk($keys, function($val, $key) {
-    // global $showArray;
+    global $showArray;
     $showArray[$val] = isset($_GET[$val]) ? $_GET[$val] : false;
     if ($showArray[$val] != false) {
         echo "\tprivate String {$val};\n";
