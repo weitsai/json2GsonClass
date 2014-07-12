@@ -32,7 +32,7 @@ array_walk($keys, function($val, $key) use ($show_set_function, $show_get_functi
     }
     if ($show_set_function) {
         echo "\n\t/**\n\t * @param {$showArray[$val . '_select']}\n\t */";
-        echo "\n\tpublic void set" . capitalize($val) . "({$showArray[$val . '_select']} $val) {\n\t}\n";
+        echo "\n\tpublic void set" . capitalize($val) . "({$showArray[$val . '_select']} $val) {\n\t\tthis.{$val} = {$val};\n\t}\n";
     }
 
     if ($show_get_function) {
