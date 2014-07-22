@@ -62,3 +62,4 @@ public class weitsai_test {
 ```
 
 
+[Demo](http://json2class.herokuapp.com/)
